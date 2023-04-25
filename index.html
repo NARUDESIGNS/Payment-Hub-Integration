@@ -4,9 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Payment Hub | Checkout</title>
 </head>
 <body>
-    <h1>Checkout Payment Form</h1>
+    <main class="overall-container">
+        <h2 class="overall-container__header">Complete Payment</h2>
+        <div class="product-container">
+            <div class="product">
+                <img class="product__img" src="./assets/sony-headphone.jpg" alt="sony heaphone image" >
+                <div class="product-details">
+                    <h3 class="product-details__header">SONY WH-1000XM4</h3>
+                    <p class="product-details__desc">Sony Wh1000xm4 Wireless Bluetooth Noise Cancelling Stereo Headset - Black</p>
+                    <h4 class="product-details__price">$<span class="price" id="sony-price">270.99</span></h4>
+                    <button class="buy-btn" id="buy-sony">BUY</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img class="product__img" src="./assets/apple-headphone.jpg" alt="apple heaphone image" >
+                <div class="product-details">
+                    <h3 class="product-details__header">AIRPOD MAX</h3>
+                    <p class="product-details__desc">Apple AirPods Max Wireless Over-Ear Headphones - Black</p>
+                    <h4 class="product-details__price">$<span class="price" id="apple-price">399.93</span></h4>
+                    <button class="buy-btn" id="buy-apple">BUY</button>
+                </div>
+            </div>
+        </div>
+        <h3 class="total-price">Total — $<span class="price" id="price">399.93</span> </h3>
+        <form class="form">
+            <h2 class="form__header">Enter Card Details</h2>
+            <div class="inputs">
+                <input class="inputs__card-number" id="card-number" type="text" maxlength="16" placeholder="enter card number" value="4000000000000002" required/>
+                <input class="inputs__exp-date" id="exp-date" type="text" maxlength="5" placeholder="enter expiry date" value="29/12" required/>
+                <input class="inputs__cvv" id="cvv" type="text" maxlength="3" placeholder="enter card cvv" value="123" required/>
+            </div>
+            <button class="pay-btn" id="pay-btn">
+                <span id="pay-text">PAY</span>
+                <span class="loader" id="loader"></span>
+            </button>
+        </form>
+    </main>
+
+    <script type="text/javascript" src="./app.js"></script>
 </body>
 </html>
