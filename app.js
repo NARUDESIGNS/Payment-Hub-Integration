@@ -23,7 +23,7 @@ const cvv = document.getElementById('cvv');
   // GET TAC
   function getTAC(price) {
     const body = {
-      "MAC": "2ifP9bBSu9TNXTsdgD7By451AR35sfus",
+      "MAC": "YOUR_MAC",
       "AMOUNT": price,
       "TRAN_NBR": "0010",
       "TRAN_GROUP": "AUTH",
@@ -59,10 +59,10 @@ const cvv = document.getElementById('cvv');
     const body = {
         "TAC": TAC,
         "TRAN_CODE": "AUTH",
-        "CUST_NBR": 9001,
-        "MERCH_NBR": 711001,
-        "DBA_NBR": 1,
-        "TERMINAL_NBR": 15,
+        "CUST_NBR": 'YOUR_CUST_NBR',
+        "MERCH_NBR": 'YOUR_MERCH_MBR',
+        "DBA_NBR": 'YOUR_DBA_NBR',
+        "TERMINAL_NBR": 'YOUR_TERMINAL_NBR',
         "AMOUNT": price,
         "INDUSTRY_TYPE": "E",
         "ACCOUNT_NBR": cardNumber.value,
@@ -83,7 +83,7 @@ const cvv = document.getElementById('cvv');
     .then(xmlString => {
         const parser = new DOMParser();
         const xml = parser.parseFromString(xmlString, 'text/xml');
-        // const toekn = xml.querySelector('input[name="AUTH_GUID"]').value;
+        // const token = xml.querySelector('input[name="AUTH_GUID"]').value;
         // makePayment(toekn, price) // make payment using the Custom Pay API
         console.log(xml);
     })
@@ -104,13 +104,13 @@ const cvv = document.getElementById('cvv');
       "cardEntryMethod": "Z"
     }
 
-    fetch(`https://epi.epxuap.com/sale/${BRIC}/capture`, {
-      method: 'PUT',
+    fetch(`https://epi.epxuap.com/sale/${BRIC}`, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'EPI-Id': '9001-711001-1-15',
-        'EPI-Key': '8EEDC66DF02D7803E05321281FAC8C31',
-        'EPI-Signature': 'xxx', // hmac signature here...
+        'EPI-Id': 'YOUR_EPI_ID',
+        'EPI-Key': 'YOUR_EPI_KEY',
+        'EPI-Signature': 'YOUR_HMAC_SIGNATURE', // hmac signature here...
         'EPI-BRIC': `${BRIC}`,
         'EPI-Trace': '123'
       },
